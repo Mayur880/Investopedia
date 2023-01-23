@@ -1,0 +1,75 @@
+
+<!--{% load static %}-->
+<!--<ul id="dropdown1" class="dropdown-content">-->
+
+
+<!--    {% for cat in cats %}-->
+
+<!--    <li><a href="/category/{{cat.url}}">{{cat.title}}</a></li>-->
+
+<!--    {% endfor %}-->
+
+<!--</ul>-->
+<!--<nav class="primary ">-->
+<!--  <div class="container ">-->
+<!--    <div class="nav-wrapper">-->
+<!--      <a href="/home" class="brand-logo responsive-img"><img src="{% static 'css/logo1.jpg' %}"> </a>-->
+
+
+<!--  </div>-->
+<!--      <ul class="right hide-on-med-and-down">-->
+<!--        <li><a href="/about">About</a></li>-->
+<!--        <li><a href="/admin">Admin</a></li>-->
+<!--        &lt;!&ndash; Dropdown Trigger &ndash;&gt;-->
+<!--        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>-->
+<!--      </ul>-->
+<!--&lt;!&ndash;      <nav class="navbar bg-light">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="container-fluid">&ndash;&gt;-->
+<!--&lt;!&ndash;       <form class="d-flex" role="search">&ndash;&gt;-->
+<!--&lt;!&ndash;      <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">&ndash;&gt;-->
+<!--&lt;!&ndash;      <button class="btn btn-outline-success" type="submit">Search</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--    </div>-->
+<!--&lt;!&ndash;      </nav>&ndash;&gt;-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+
+
+
+{% load static %}
+
+<ul id="dropdown1" class="dropdown-content">
+
+
+    {% for cat in cats %}
+
+    <li><a href="/category/{{cat.url}}">{{cat.title}}</a></li>
+
+    {% endfor %}
+
+</ul>
+<nav class="primary">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo responsive-img"><img src="{% static 'css/logo1.jpg' %}"> </a>
+      <ul class="right hide-on-med-and-down">
+          {% if user.is_authenticated %}
+            <li><a href="/logout">logout</a></li>
+            <li><a href="/about">Calculator</a></li>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/courses">Courses</a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+          {% else %}
+          <li><a href="/signin">Signup</a></li>
+            <li><a href="/login">login</a></li>
+
+          {% endif %}
+        <!-- Dropdown Trigger -->
+
+      </ul>
+    </div>
+  </div>
+</nav>
